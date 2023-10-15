@@ -1,0 +1,16 @@
+﻿  QuantityTest.cpp
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(198,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(203,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(208,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(355,38): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(360,38): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(365,38): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(464,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(465,9): warning C4101: 'buf': unreferenced local variable
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(533,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(538,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(543,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(689,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(694,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(699,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+  QuantityProj.vcxproj -> C:\Users\OmidHome\Documents\GitHub\Quantity\x64\Debug\QuantityProj.exe
