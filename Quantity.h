@@ -483,7 +483,7 @@ class QAngleSpeed
 public:
 	enum class QuantityUnit
 	{
-		QT_DpS, QT_mDpS, QT_DpH, QT_mDpH, _NumberOfUnits
+		QT_DpS, QT_mDpS, QT_DpM, QT_mDpM, QT_DpH, QT_mDpH, QT_RPM, _NumberOfUnits
 	};
 	explicit QAngleSpeed();
 	explicit QAngleSpeed(double value, QuantityUnit QType = QuantityUnit::QT_DpS);
@@ -493,9 +493,12 @@ public:
 	void mDpH(double value);
 
 	double DpS()const;
-	double mDpS()const;
+	double DpM()const;
 	double DpH()const;
+	double mDpS()const;
+	double mDpM()const;
 	double mDpH()const;
+	double RPM();
 
 private:
 	QuantityUnit _mountType = QuantityUnit::QT_DpH;

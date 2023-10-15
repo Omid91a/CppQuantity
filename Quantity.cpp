@@ -91,7 +91,8 @@ void QFrequency::InitConversionMatrix()
 		{ 1e-9   , 1e-6   , 1e-3    , 1    }  //QT_Hz
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 
@@ -181,7 +182,8 @@ double QSignalLevel::GetMount(QuantityUnit return_mode)const
 
 	// check the available unit in map
 	auto first_item = ValueMap.begin();
-	double converted_value = (ConversionMatrix[(int)first_item->first][(int)return_mode])(first_item->second);
+	auto f = ConversionMatrix[(int)first_item->first][(int)return_mode];
+	double converted_value = f(first_item->second);
 
 	return converted_value;
 }
@@ -198,7 +200,8 @@ void QSignalLevel::InitConversionMatrix()
 		{[](double v) {return log10(v) * 20.0 + 30; }, [](double v) {return log10(v) * 20.0; },			 [](double v) {return v * v; },					  [](double v) {return v * v * 1000.0; },			 [](double v) {return v; }}  //QT_Volt
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 
@@ -308,7 +311,8 @@ void QTimes::InitConversionMatrix()
 		{ 1e-12  , 1e-9   , 1e-6    , 1e-3   , 1    }  //QT_pS
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 
@@ -322,12 +326,14 @@ void QTimes::InitConversionMatrix()
 QAngleSpeed::QAngleSpeed()
 {
 	ValueMap.insert_or_assign(QuantityUnit::QT_DpS, 0);
+	InitConversionMatrix();
 }
 
 
 QAngleSpeed::QAngleSpeed(double value, QAngleSpeed::QuantityUnit QType)
 {
 	ValueMap.insert_or_assign(QType, value);
+	InitConversionMatrix();
 }
 
 
@@ -354,28 +360,67 @@ void QAngleSpeed::mDpH(double value)
 	ValueMap.insert_or_assign(QuantityUnit::QT_mDpH, value);
 }
 
-
+/// <summary>
+/// Degree per second
+/// </summary>
+/// <returns></returns>
 double QAngleSpeed::DpS() const
 {
 	return GetMount(QuantityUnit::QT_DpS);
 }
 
+/// <summary>
+/// Degree per minut
+/// </summary>
+/// <returns></returns>
+double QAngleSpeed::DpM() const
+{
+	return GetMount(QuantityUnit::QT_DpM);
+}
 
+/// <summary>
+/// Mili degree per second
+/// </summary>
+/// <returns></returns>
 double QAngleSpeed::mDpS() const
 {
 	return GetMount(QuantityUnit::QT_mDpS);
 }
 
+/// <summary>
+/// Mili degree per minute
+/// </summary>
+/// <returns></returns>
+double QAngleSpeed::mDpM() const
+{
+	return GetMount(QuantityUnit::QT_mDpM);
+}
 
+/// <summary>
+/// Degree per hour
+/// </summary>
+/// <returns></returns>
 double QAngleSpeed::DpH() const
 {
 	return GetMount(QuantityUnit::QT_DpH);
 }
 
-
+/// <summary>
+/// Mili degree per hour
+/// </summary>
+/// <returns></returns>
 double QAngleSpeed::mDpH() const
 {
 	return GetMount(QuantityUnit::QT_mDpH);
+}
+
+/// <summary>
+/// Round per Minute
+/// </summary>
+/// <returns></returns>
+double QAngleSpeed::RPM()
+{
+	return GetMount(QuantityUnit::QT_RPM);
 }
 
 
@@ -397,14 +442,18 @@ void QAngleSpeed::InitConversionMatrix()
 {
 	double conversion_matrix[(int)QuantityUnit::_NumberOfUnits][(int)QuantityUnit::_NumberOfUnits]
 	{
-		//QT_DpS,  QT_mDpS, QT_DpH,   QT_mDpH
-		{ 1      , 1e3    , 0.01666 , 16.6666}, //QT_DpS
-		{ 1e-3   , 1      , 1.666e-5, 60     }, //QT_mDpS
-		{ 0.01666, 16.6666, 1       , 1e3    }, //QT_DpH
-		{ 60e-3  , 60     , 1e-3    , 1      }  //QT_mDpH
+		//QT_DpS,      QT_mDpS,     QT_DpM,    QT_mDpM,   QT_DpH,   QT_mDpH,   QT_RPM
+		{ 1          , 1e3        , 60       , 6e4      , 3600    , 3.6e6    , 1/6.0       }, //QT_DpS
+		{ 1e-3       , 1          , 0.06     , 60       , 3.6     , 3.6e3    , 1e-3 / 6.0  }, //QT_mDpS
+		{ 1.0/60.0   , 100/6.0    , 1        , 1e3      , 60.0    , 60e3     , 1 / 360.0   }, //QT_DpM
+		{ 1.0/6e4    , 1.0 / 60   , 1e-3     , 1        , 6e-2    , 1 / 60.0 , 1.0 / 36e4  }, //QT_mDpM
+		{ 1 / 3600.0 , 1 / 3.6    , 1 / 60.0 , 100 / 6.0, 1       , 1e3      , 1.0 / 2.16e4}, //QT_DpH
+		{ 1.0 / 3.6e6, 1.0 / 3.6e3, 1.0 / 6e4, 1 / 60.0 , 1e-3     , 1       , 1.0 / 2.16e7}, //QT_mDpH
+		{ 6          , 6e3        , 360      , 36e4     , 21600   , 21.6e6   , 1           }  //QT_RPM
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 
@@ -535,7 +584,8 @@ void QAngle::InitConversionMatrix()
 		{ 57.2958, 57295.8, 1      }  //QT_Rad
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 //-----------------------------------------------------------------------------
@@ -650,7 +700,8 @@ void QGroundSpeed::InitConversionMatrix()
 		{ 6e4   , 60     , 1e3   , 1      }  //QT_KMPH
 	};
 
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 
@@ -782,8 +833,8 @@ void QDistance::InitConversionMatrix()
 	  { 0,        0,      0,       0,       0,           0,       0 },    // QT_Inch
 	  { 0,        0,      0,       0,       0,           0,       0 }     // QT_Foot
 	};
-
-	std::memcpy(ConversionMatrix, conversion_matrix, sizeof(conversion_matrix));
+	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
+	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);
 }
 
 double QDistance::GetMount(QDistance::QuantityUnit return_mode) const

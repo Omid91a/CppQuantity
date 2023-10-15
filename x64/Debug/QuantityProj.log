@@ -1,4 +1,4 @@
-﻿  QuantityTest.cpp
+﻿  Quantity.cpp
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(198,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(203,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(208,45): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
@@ -7,10 +7,100 @@ C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(360,38): warning C4244: '
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(365,38): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(464,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(465,9): warning C4101: 'buf': unreferenced local variable
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(533,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(538,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(543,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(689,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(694,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
-C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(699,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(536,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(541,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(546,44): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(692,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(697,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.h(702,39): warning C4244: 'argument': conversion from 'uint64_t' to 'double', possible loss of data
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(240,65): warning C4244: '=': conversion from 'uint64_t' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty2=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(289): message : see reference to function template instantiation 'std::pair<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,_Alloc>::_Insert_or_assign<QTimes::QuantityUnit,uint64_t&>(_Keyty &&,_Mappedty)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Keyty=QTimes::QuantityUnit,
+              _Mappedty=uint64_t &
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(289): message : see reference to function template instantiation 'std::pair<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,_Alloc>::_Insert_or_assign<QTimes::QuantityUnit,uint64_t&>(_Keyty &&,_Mappedty)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Keyty=QTimes::QuantityUnit,
+              _Mappedty=uint64_t &
+          ]
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.cpp(254): message : see reference to function template instantiation 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const QTimes::QuantityUnit,double>>>>,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::insert_or_assign<uint64_t&>(QTimes::QuantityUnit &&,_Mappedty)' being compiled
+          with
+          [
+              _Mappedty=uint64_t &
+          ]
+C:\Users\OmidHome\Documents\GitHub\Quantity\Quantity.cpp(254): message : see reference to function template instantiation 'std::pair<std::_Tree_iterator<std::_Tree_val<std::_Tree_simple_types<std::pair<const QTimes::QuantityUnit,double>>>>,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::insert_or_assign<uint64_t&>(QTimes::QuantityUnit &&,_Mappedty)' being compiled
+          with
+          [
+              _Mappedty=uint64_t &
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\utility(186,54): warning C4244: 'initializing': conversion from 'uint64_t' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty2=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xmemory(674): message : see reference to function template instantiation 'std::pair<const QTimes::QuantityUnit,double>::pair<_Ty,uint64_t&,0>(_Other1 &&,_Other2) noexcept' being compiled
+          with
+          [
+              _Ty=QTimes::QuantityUnit,
+              _Other1=QTimes::QuantityUnit,
+              _Other2=uint64_t &
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xmemory(681): message : see reference to function template instantiation 'std::pair<const QTimes::QuantityUnit,double>::pair<_Ty,uint64_t&,0>(_Other1 &&,_Other2) noexcept' being compiled
+          with
+          [
+              _Ty=QTimes::QuantityUnit,
+              _Other1=QTimes::QuantityUnit,
+              _Other2=uint64_t &
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xtree(804): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,QTimes::QuantityUnit,uint64_t&>(_Alloc &,_Objty *const ,QTimes::QuantityUnit &&,uint64_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::void_pointer>>,
+              _Ty=std::pair<const QTimes::QuantityUnit,double>,
+              _Objty=std::pair<const QTimes::QuantityUnit,double>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\xtree(805): message : see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,QTimes::QuantityUnit,uint64_t&>(_Alloc &,_Objty *const ,QTimes::QuantityUnit &&,uint64_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::void_pointer>>,
+              _Ty=std::pair<const QTimes::QuantityUnit,double>,
+              _Objty=std::pair<const QTimes::QuantityUnit,double>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(248): message : see reference to function template instantiation 'std::_Tree_temp_node<std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer>>>::_Tree_temp_node<_Ty,uint64_t&>(_Alnode &,std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,_Ty &&,uint64_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Ty=QTimes::QuantityUnit,
+              _Alnode=std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::void_pointer>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(247): message : see reference to function template instantiation 'std::_Tree_temp_node<std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer>>>::_Tree_temp_node<_Ty,uint64_t&>(_Alnode &,std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,_Ty &&,uint64_t &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Ty=QTimes::QuantityUnit,
+              _Alnode=std::allocator<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<std::allocator<std::pair<const QTimes::QuantityUnit,double>>>::void_pointer>>
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(289): message : see reference to function template instantiation 'std::pair<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,_Alloc>::_Insert_or_assign<QTimes::QuantityUnit,uint64_t&>(_Keyty &&,_Mappedty)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Keyty=QTimes::QuantityUnit,
+              _Mappedty=uint64_t &
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30133\include\map(289): message : see reference to function template instantiation 'std::pair<std::_Tree_node<std::pair<const QTimes::QuantityUnit,double>,std::_Default_allocator_traits<_Alloc>::void_pointer> *,bool> std::map<QTimes::QuantityUnit,double,std::less<QTimes::QuantityUnit>,_Alloc>::_Insert_or_assign<QTimes::QuantityUnit,uint64_t&>(_Keyty &&,_Mappedty)' being compiled
+          with
+          [
+              _Alloc=std::allocator<std::pair<const QTimes::QuantityUnit,double>>,
+              _Keyty=QTimes::QuantityUnit,
+              _Mappedty=uint64_t &
+          ]
   QuantityProj.vcxproj -> C:\Users\OmidHome\Documents\GitHub\Quantity\x64\Debug\QuantityProj.exe
