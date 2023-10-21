@@ -466,12 +466,14 @@ void QAngleSpeed::InitConversionMatrix()
 QAngle::QAngle()
 {
 	ValueMap.insert_or_assign(QuantityUnit::QT_Deg, 0);
+	InitConversionMatrix();
 }
 
 
 QAngle::QAngle(double value, QAngle::QuantityUnit QType)
 {
 	ValueMap.insert_or_assign(QType, value);
+	InitConversionMatrix();
 }
 
 
@@ -716,66 +718,57 @@ void QGroundSpeed::InitConversionMatrix()
 ///
 QDistance::QDistance()
 {
-	MountType = QuantityUnit::QT_M;
-	ValueMap.insert_or_assign(MountType, 0);
+	ValueMap.insert_or_assign(QuantityUnit::QT_M, 0);
 	InitConversionMatrix();
 }
 
 
 QDistance::QDistance(double value, QDistance::QuantityUnit QType)
 {
-	MountType = QType;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QType, value);
 	InitConversionMatrix();
 }
 
 
 void QDistance::Mm(double value)
 {
-	MountType = QuantityUnit::QT_MM;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_MM, value);
 }
 
 
 void QDistance::Cm(double value)
 {
-	MountType = QuantityUnit::QT_CM;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_CM, value);
 }
 
 
 void QDistance::M(double value)
 {
-	MountType = QuantityUnit::QT_M;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_M, value);
 }
 
 
 void QDistance::Km(double value)
 {
-	MountType = QuantityUnit::QT_KM;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_KM, value);
 }
 
 
 void QDistance::Mi(double value)
 {
-	MountType = QuantityUnit::QT_Mile;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_Mile, value);
 }
 
 
 void QDistance::Inch(double value)
 {
-	MountType = QuantityUnit::QT_INCH;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_INCH, value);
 }
 
 
 void QDistance::Foot(double value)
 {
-	MountType = QuantityUnit::QT_Foot;
-	ValueMap.insert_or_assign(MountType, value);
+	ValueMap.insert_or_assign(QuantityUnit::QT_Foot, value);
 }
 
 
@@ -824,14 +817,14 @@ double QDistance::Foot() const
 void QDistance::InitConversionMatrix()
 {
 	double conversion_matrix[(int)QuantityUnit::_NumberOfUnits][(int)QuantityUnit::_NumberOfUnits] =
-		//QT_MM,    QT_CM,  QT_M,    QT_KM,   QT_Mile,     QT_INCH, QT_Foot
-	{ { 1,        0.01,   1e-3,    1e-6,    6.2137e-7,   0,       0 },    // QT_MM
-	  { 10,       1,      0.01,    1e-5,    6.21371e-6,  0,       0 },    // QT_CM
-	  { 1e3,      1e2,    1,       1e-3,    0.000621371, 0,       0 },    // QT_M
-	  { 1e6,      1e5,    1e3,     1,       0.621371,    0,       0 },    // QT_KM
-	  { 1.609e+6, 160934, 1609.34, 1.60934, 1,           0,       0 },    // QT_Mile
-	  { 0,        0,      0,       0,       0,           0,       0 },    // QT_Inch
-	  { 0,        0,      0,       0,       0,           0,       0 }     // QT_Foot
+		//QT_MM,    QT_CM,  QT_M,      QT_KM,     QT_Mile,     QT_INCH, QT_Foot
+	{ { 1,        0.01,   1e-3,        1e-6,      6.2137e-7,   0.0393701,0.00328084},    // QT_MM
+	  { 10,       1,      0.01,        1e-5,      6.21371e-6,  0.393701 ,0.0328084 },    // QT_CM
+	  { 1e3,      1e2,    1,           1e-3,      0.000621371, 39.3701  ,3.28084   },    // QT_M
+	  { 1e6,      1e5,    1e3,         1,         0.621371,    39370.1  ,3280.84   },    // QT_KM
+	  { 1.609e+6, 160934, 1609.34,     1.60934,   1,           63360    ,5280	   },    // QT_Mile
+	  { 25.4,     2.54,   0.0254,      2.54e-5,   1.5783e-5,   1        ,0.0833333 },    // QT_Inch
+	  { 304.8,    30.48,  0.0003048,   0.0003048, 0.000189394, 12       ,1		   }     // QT_Foot
 	};
 	int end_index = (int)QuantityUnit::_NumberOfUnits - 1;
 	std::copy(&conversion_matrix[0][0], &conversion_matrix[end_index][end_index], &ConversionMatrix[0][0]);

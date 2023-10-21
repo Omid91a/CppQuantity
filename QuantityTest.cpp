@@ -179,11 +179,125 @@ void QAngleSpeed_TEST()
 	std::cout << "Test Case4: QAngleSpeed [Pass]" << std::endl;
 }
 
+void QAngle_TEST()
+{
+	QAngle a1(100, QAngle::QuantityUnit::QT_Deg);
+	assert(a1.Deg(), 100);
+	assert(a1.mDeg(), 100e3);
+	assert(a1.Rad(), 1.74533);
+
+	QAngle a2(100e3, QAngle::QuantityUnit::QT_mDeg);
+	assert(a2.Deg(), 100);
+	assert(a2.mDeg(), 100e3);
+	assert(a2.Rad(), 1.74533);
+
+	QAngle a3(1.74533, QAngle::QuantityUnit::QT_Rad);
+	assert(a3.Deg(), 100);
+	assert(a3.mDeg(), 100e3);
+	assert(a3.Rad(), 1.74533);
+}
+
+void QGroundSpeed_TEST()
+{
+	QGroundSpeed gs1(10, QGroundSpeed::QuantityUnit::QT_KMPH);
+	assert(gs1.KMPh(), 10);
+	assert(gs1.KMPs(), 10.0 / 3600.0);
+	assert(gs1.MPh(), 0.01);
+	assert(gs1.MPs(), 0.01 / 3600.0);
+
+	QGroundSpeed gs2(10.0 / 3600.0, QGroundSpeed::QuantityUnit::QT_KMPS);
+	assert(gs2.KMPh(), 10);
+	assert(gs2.KMPs(), 10.0 / 3600.0);
+	assert(gs2.MPh(), 0.01);
+	assert(gs2.MPs(), 0.01 / 3600.0);
+
+	QGroundSpeed gs3(0.01, QGroundSpeed::QuantityUnit::QT_MPH);
+	assert(gs3.KMPh(), 10);
+	assert(gs3.KMPs(), 10.0 / 3600.0);
+	assert(gs3.MPh(), 0.01);
+	assert(gs3.MPs(), 0.01 / 3600.0);
+
+	QGroundSpeed gs4(0.01 / 3600.0, QGroundSpeed::QuantityUnit::QT_MPS);
+	assert(gs4.KMPh(), 10);
+	assert(gs4.KMPs(), 10.0 / 3600.0);
+	assert(gs4.MPh(), 0.01);
+	assert(gs4.MPs(), 0.01 / 3600.0);
+}
+
+void QDistance_TEST()
+{
+	QDistance d1(25, QDistance::QuantityUnit::QT_CM);
+	assert(d1.Cm(), 25);
+	assert(d1.Foot(), 0.82021);
+	assert(d1.Inch(), 9.84252);
+	assert(d1.Km(), 0.00025);
+	assert(d1.M(), 0.25);
+	assert(d1.Mi(), 0.000155343);
+	assert(d1.Mm(), 250);
+
+	QDistance d2(0.82021, QDistance::QuantityUnit::QT_Foot);
+	assert(d2.Cm(), 25);
+	assert(d2.Foot(), 0.82021);
+	assert(d2.Inch(), 9.84252);
+	assert(d2.Km(), 0.00025);
+	assert(d2.M(), 0.25);
+	assert(d2.Mi(), 0.000155343);
+	assert(d2.Mm(), 250);
+
+	QDistance d3(9.84252, QDistance::QuantityUnit::QT_INCH);
+	assert(d3.Cm(), 25);
+	assert(d3.Foot(), 0.82021);
+	assert(d3.Inch(), 9.84252);
+	assert(d3.Km(), 0.00025);
+	assert(d3.M(), 0.25);
+	assert(d3.Mi(), 0.000155343);
+	assert(d3.Mm(), 250);
+
+	QDistance d4(0.00025, QDistance::QuantityUnit::QT_KM);
+	assert(d4.Cm(), 25);
+	assert(d4.Foot(), 0.82021);
+	assert(d4.Inch(), 9.84252);
+	assert(d4.Km(), 0.00025);
+	assert(d4.M(), 0.25);
+	assert(d4.Mi(), 0.000155343);
+	assert(d4.Mm(), 250);
+
+	QDistance d5(0.25, QDistance::QuantityUnit::QT_M);
+	assert(d5.Cm(), 25);
+	assert(d5.Foot(), 0.82021);
+	assert(d5.Inch(), 9.84252);
+	assert(d5.Km(), 0.00025);
+	assert(d5.M(), 0.25);
+	assert(d5.Mi(), 0.000155343);
+	assert(d5.Mm(), 250);
+
+	QDistance d6(0.000155343, QDistance::QuantityUnit::QT_Mile);
+	assert(d6.Cm(), 25);
+	assert(d6.Foot(), 0.82021);
+	assert(d6.Inch(), 9.84252);
+	assert(d6.Km(), 0.00025);
+	assert(d6.M(), 0.25);
+	assert(d6.Mi(), 0.000155343);
+	assert(d6.Mm(), 250);
+
+	QDistance d(250, QDistance::QuantityUnit::QT_MM);
+	assert(d.Cm(), 25);
+	assert(d.Foot(), 0.82021);
+	assert(d.Inch(), 9.84252);
+	assert(d.Km(), 0.00025);
+	assert(d.M(), 0.25);
+	assert(d.Mi(), 0.000155343);
+	assert(d.Mm(), 250);
+}
+
 int main()
 {
 	QFrequency_TEST();
 	QSignalLevel_TEST();
 	QTimes_TEST();
 	QAngleSpeed_TEST();
+	QAngle_TEST();
+	QGroundSpeed_TEST();
+	QDistance_TEST();
 	return 0;
 }

@@ -916,7 +916,6 @@ private:
 	double ConversionMatrix[(int)QuantityUnit::_NumberOfUnits][(int)QuantityUnit::_NumberOfUnits];
 	void InitConversionMatrix();
 
-	QuantityUnit MountType = QuantityUnit::QT_M;
 	double GetMount(QuantityUnit return_mode) const;
 
 	// operators
