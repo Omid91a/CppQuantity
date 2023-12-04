@@ -26,7 +26,7 @@ The Quantity Conversion Library is designed to simplify the conversion of variou
 
 ## Usage
 
-To use the library, include the relevant headers in your project and utilize the provided conversion functions. Below are examples for SignalLevel and Frequency conversion in both C++ and C#.
+To use the library, include the relevant headers in your project and utilize the provided conversion functions. Below are examples for SignalLevel and Frequency conversion in C++.
 
 ## Examples
 
@@ -375,4 +375,9 @@ void QDistance_TEST()
 }
 ```
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+Free
+
+## Author
+Omid Ardestani
+o.ardestani@hotmail.com
+
