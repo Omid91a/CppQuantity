@@ -1,4 +1,6 @@
 # Quantity Conversion Library
+[![Build Status](https://github.com/Omid91a/CppQuantity/actions/workflows/msbuild.yml/badge.svg)](https://github.com/Omid91a/CppQuantity/actions)
+
 
 A C++ library implementing the Quantity design pattern for unit conversions. This library provides functionality to convert units for SignalLevel, Frequency, Distance, Ground Speed, Angle Speed, Angle, and Time.
 
